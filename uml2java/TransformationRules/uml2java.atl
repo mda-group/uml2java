@@ -1,0 +1,8 @@
+query Script = MM!Model->allInstances()->asSequence().first().GenerateJavaCode().writeTo('/uml2java/JavaTargetModels/main.java');
+
+							
+helper context MM!Model def : GenerateJavaCode() : String = 
+	     '/* \n'+
+		 ' * Automatically generated Java code with ATL \n'+
+		 ' * Authors: Mohammed TEBIB & Pascal Andre \n'+
+		 ' */ \n';
