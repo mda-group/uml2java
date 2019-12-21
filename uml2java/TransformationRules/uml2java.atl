@@ -2,19 +2,23 @@ query Script = MM!Model->allInstances()->asSequence().first().GenerateJavaCode()
 
 							
 helper context MM!Model def : GenerateJavaCode() : String = 
-	    let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
+	  let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
 	     '/* \n'+
 		 ' * Automatically generated Java code with ATL \n'+
 		 ' */ \n'+
 		  classes->iterate(it; Class_Code: String = ''|Class_Code 
 	        + it.visibility +' class '+ it.name 
+			--+ if it.hasBehavior(it) then ' implements ' + 'I'+it.name+'StateMachine ' else '' endif
 		    + '{\n  '
 		  	+'  //attributes \n'
 		    +'  ' + it.GenerateAttributes(it)
+			+'\n\n    //methodes \n'
+		    +'  ' + it.GenerateMethods(it)
 		    + '\n} \n'
+			+ it.GenerateInterfaces(it)
           );
 
-
+   
 --A method to generate the attributes of a given class
 helper context MM!Class def : GenerateAttributes(x:MM!Class) : String = 
    let  attributes : MM!Property = x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property)) in
@@ -24,4 +28,65 @@ helper context MM!Class def : GenerateAttributes(x:MM!Class) : String =
 			 + it.type + ' '
 			 + it.name + ';'
 			 + '\n  '
+		     + if x.hasBehavior(x) then '  private ' + 'I'+x.name+'StateMachine '+x.name.toString().toLower()+'State;' else '' endif
           );
+
+--A method to generate the methods of a given class
+helper context MM!Class def : GenerateMethods(x:MM!Class) : String = 
+   let  methods : MM!Operation = x.ownedOperation->select(a | a.oclIsTypeOf(MM!Operation)) in  
+       methods->iterate(it; att: String = ' '|  att + '  '
+         + it.visibility
+		 + if(it.isStatic.toString()='true') then 'static ' else ' ' endif
+	     + if(it.isAbstract.toString()='true') then 'abstract ' else ' ' endif
+	     + if(it.type.toString()<>'OclUndefined') then 
+	          if(it.type.toString().substring(1, 3)='<un') then it.type.toString().substring(11, it.type.toString().size()) 
+		      else  if (it.type.toString().substring(1, 3)='IN!') then it.type.toString().substring(4, it.type.toString().size())
+		            else '' endif
+		     endif
+		   else 'void' endif
+	    + '  '+it.name + '('
+	    + '){\n'
+	    + '     }\n   '
+       )
+	   +if x.hasBehavior(x) then '  public  void setState(' + 'I'+x.name+'StateMachine '+x.name.toString().toLower()+'State){\n'
+	         + '       this.'+x.name.toString().toLower()+'State='+x.name.toString().toLower()+'State; \n'
+		     + '     }\n' 
+		  else ''
+		  endif
+;
+
+helper context MM!Class def : hasBehavior(x: MM!Class) : Boolean = 
+	let  behavior : MM!StateMachine = x.ownedOperation->select(b | b.oclIsTypeOf(MM!StateMachine)) in 
+      if behavior.isEmpty() then true else false endif
+;
+
+helper context MM!Class def : GenerateInterfaces(it: MM!Class) : String = 
+
+      if it.hasBehavior(it) then 
+		  'public interface I'+ it.name + 'StateMachine'
+		    +'{\n  '
+		    +'\n} \n'
+			+  it.GenerateBehavior(it)
+      else ''
+	  endif 	
+;
+
+helper context MM!Class def : GenerateBehavior(it: MM!Class) : String =
+   	let  behaviors : MM!StateMachine = it.ownedBehavior->select(b | b.oclIsTypeOf(MM!StateMachine)) in 
+	      behaviors->iterate(behavior; bh: String = ''|bh 
+	         + behavior.GenerateRegion(behavior,it.name)
+		  );
+	   
+
+helper context MM!StateMachine def :GenerateRegion(behavior: MM!StateMachine, className: String): String =  --'midou \n'
+	let  regions :  MM!Region = behavior.region->select(s | s.oclIsTypeOf(MM!Region)) in
+	     regions->iterate(region; rg: String =  '' | rg 
+	        + region.GenerateState(region, className)
+		 );
+
+helper context MM!Region def : GenerateState(region: MM!Region, className: String): String =  --'midou \n'
+	let  states :  MM!State = region.subvertex->select(s | s.oclIsTypeOf(MM!State)) in
+	     states->iterate(state; st: String =  '' | st 
+	       + 'public classe '+state.name + ' implements I'+className+'StateMachine {' + '\n'
+	       + '}\n'
+		 );
