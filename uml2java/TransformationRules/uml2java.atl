@@ -54,12 +54,11 @@ helper context MM!Class def : hasBehavior(x: MM!Class) : Boolean =
 ;
 
 helper context MM!Class def : GenerateInterfaces(it: MM!Class) : String = 
-  
-	        if it.hasBehavior(it) then 
-			     'public interface I'+ it.name + 'StateMachine'
-		        +'{\n  '
-		        +'\n} \n'
-			  else ''
-			  endif 	
+      if it.hasBehavior(it) then 
+		  'public interface I'+ it.name + 'StateMachine'
+		    +'{\n  '
+		    +'\n} \n'
+      else ''
+	  endif 	
 ;
  
