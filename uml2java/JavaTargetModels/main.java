@@ -1,52 +1,44 @@
 /* 
  * Automatically generated Java code with ATL 
  */ 
-private class Telecommande{
+public class Moteur implements IMoteurStateMachine {
     //attributes 
-    public  org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl@5313ca18 (name: EFloat, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) x;
-    protected static  org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl@7708f091 (name: Boolean, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) y;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@33b8c318 (name: Porte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
   
 
     //methodes 
-     public  void  demandeOuverture(){
+     public  void  pousser(){
      }
-     public  void  demandeFermeture(){
+     public  void  tirer(){
      }
-   
-} 
-public class ControleurDePorte{
-    //attributes 
-    private  org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl@10b68693 (name: EBigInteger, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) a;
-  
-
-    //methodes 
-     public  void  ouvre(){
+     public  void  stoppe(){
      }
-     public  void  ferme(){
+     public  void  arreter(){
      }
-     public  void  enregistreContact(){
+     public  void  tire(){
      }
-     public  void  urgence(){
+     public  void  pousse(){
      }
-     public  void  contact(){
-     }
-     public  void  repriseCle(){
+     public  void  Moteur(){
      }
    
 } 
-public class Capteur{
+public class Capteur implements ICapteurStateMachine {
     //attributes 
-    private  org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl@7d6fe7ef (name: EByte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) c;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@15e3e6e7 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
   
 
     //methodes 
      public  void  contact(){
      }
+     public  void  Capteur(){
+     }
    
 } 
-public class Porte{
+public class Porte implements IPorteStateMachine {
     //attributes 
-    public static  org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl@7d6fe7ef (name: EByte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) b;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2aba5c88 (name: Moteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) mt;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@15e3e6e7 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
   
 
     //methodes 
@@ -64,21 +56,46 @@ public class Porte{
      }
      public  void  reprend(){
      }
+     public  void  Porte(){
+     }
    
 } 
-public class Moteur{
+public class Controleur implements IControleurStateMachine {
     //attributes 
-    private static  org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl@33b9d909 (name: EChar, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) org.eclipse.m2m.atl.engine.emfvm.lib.OclUndefined@1ef8b2b0;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2a174819 (name: Capteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) cf;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2a174819 (name: Capteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) co;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@34fabf43 (name: Telecommande, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) tele;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@33b8c318 (name: Porte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) pt;
   
 
     //methodes 
-     public  void  pousser(){
+     public  void  enregistreContact(){
      }
-     public  void  tirer(){
+     public  void  ouvre(){
      }
-     public  void  stop(){
+     public  void  ferme(){
      }
-     public  void  arreter(){
+     public  void  urgence(){
+     }
+     public  void  contact(){
+     }
+     public  void  repriseCle(){
+     }
+     public  void  Controleur(){
+     }
+   
+} 
+public class Telecommande implements ITelecommandeStateMachine {
+    //attributes 
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@15e3e6e7 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
+  
+
+    //methodes 
+     public  void  demandeOuverture(){
+     }
+     public  void  demandeFermeture(){
+     }
+     public  void  Telecommande(){
      }
    
 } 

@@ -2,21 +2,22 @@ query Script = MM!Model->allInstances()->asSequence().first().GenerateJavaCode()
 
 							
 helper context MM!Model def : GenerateJavaCode() : String = 
-	    let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
+	  let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
 	     '/* \n'+
 		 ' * Automatically generated Java code with ATL \n'+
 		 ' */ \n'+
 		  classes->iterate(it; Class_Code: String = ''|Class_Code 
 	        + it.visibility +' class '+ it.name 
+			+ if it.hasBehavior(it) then ' implements ' + 'I'+it.name+'StateMachine ' else '' endif
 		    + '{\n  '
 		  	+'  //attributes \n'
 		    +'  ' + it.GenerateAttributes(it)
 			+'\n\n    //methodes \n'
 		    +'  ' + it.GenerateMethods(it)
 		    + '\n} \n'
-          );
+     );
 
-
+   
 --A method to generate the attributes of a given class
 helper context MM!Class def : GenerateAttributes(x:MM!Class) : String = 
    let  attributes : MM!Property = x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property)) in
@@ -45,3 +46,8 @@ helper context MM!Class def : GenerateMethods(x:MM!Class) : String =
 	    + '){\n'
 	    + '     }\n   '
        );
+
+helper context MM!Class def : hasBehavior(x: MM!Class) : Boolean = 
+	let  behavior : MM!StateMachine = x.ownedOperation->select(b | b.oclIsTypeOf(MM!StateMachine)) in 
+      if behavior.isEmpty() then true else false endif
+;
