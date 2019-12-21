@@ -11,6 +11,8 @@ helper context MM!Model def : GenerateJavaCode() : String =
 		    + '{\n  '
 		  	+'  //attributes \n'
 		    +'  ' + it.GenerateAttributes(it)
+			+'\n\n    //methodes \n'
+		    +'  ' + it.GenerateMethods(it)
 		    + '\n} \n'
           );
 
@@ -25,3 +27,21 @@ helper context MM!Class def : GenerateAttributes(x:MM!Class) : String =
 			 + it.name + ';'
 			 + '\n  '
           );
+
+--A method to generate the methods of a given class
+helper context MM!Class def : GenerateMethods(x:MM!Class) : String = 
+   let  methods : MM!Operation = x.ownedOperation->select(a | a.oclIsTypeOf(MM!Operation)) in  
+       methods->iterate(it; att: String = ' '|  att + '  '
+         + it.visibility
+		 + if(it.isStatic.toString()='true') then 'static ' else ' ' endif
+	     + if(it.isAbstract.toString()='true') then 'abstract ' else ' ' endif
+	     + if(it.type.toString()<>'OclUndefined') then 
+	          if(it.type.toString().substring(1, 3)='<un') then it.type.toString().substring(11, it.type.toString().size()) 
+		      else  if (it.type.toString().substring(1, 3)='IN!') then it.type.toString().substring(4, it.type.toString().size())
+		            else '' endif
+		     endif
+		   else 'void' endif
+	    + '  '+it.name + '('
+	    + '){\n'
+	    + '     }\n   '
+       );
