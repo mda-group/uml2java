@@ -15,6 +15,7 @@ helper context MM!Model def : GenerateJavaCode() : String =
 			+'\n\n    //methodes \n'
 		    +'  ' + it.GenerateMethods(it)
 		    + '\n} \n'
+			+ it.GenerateInterfaces(it)
      );
 
    
@@ -51,3 +52,14 @@ helper context MM!Class def : hasBehavior(x: MM!Class) : Boolean =
 	let  behavior : MM!StateMachine = x.ownedOperation->select(b | b.oclIsTypeOf(MM!StateMachine)) in 
       if behavior.isEmpty() then true else false endif
 ;
+
+helper context MM!Class def : GenerateInterfaces(it: MM!Class) : String = 
+  
+	        if it.hasBehavior(it) then 
+			     'public interface I'+ it.name + 'StateMachine'
+		        +'{\n  '
+		        +'\n} \n'
+			  else ''
+			  endif 	
+;
+ 

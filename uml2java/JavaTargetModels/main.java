@@ -3,7 +3,7 @@
  */ 
 public class Moteur implements IMoteurStateMachine {
     //attributes 
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@33b8c318 (name: Porte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2a0f6e77 (name: Porte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
   
 
     //methodes 
@@ -23,9 +23,12 @@ public class Moteur implements IMoteurStateMachine {
      }
    
 } 
+public interface IMoteurStateMachine{
+  
+} 
 public class Capteur implements ICapteurStateMachine {
     //attributes 
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@15e3e6e7 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@92c8613 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
   
 
     //methodes 
@@ -35,10 +38,13 @@ public class Capteur implements ICapteurStateMachine {
      }
    
 } 
+public interface ICapteurStateMachine{
+  
+} 
 public class Porte implements IPorteStateMachine {
     //attributes 
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2aba5c88 (name: Moteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) mt;
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@15e3e6e7 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@45d5c9fc (name: Moteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) mt;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@92c8613 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
   
 
     //methodes 
@@ -60,12 +66,15 @@ public class Porte implements IPorteStateMachine {
      }
    
 } 
+public interface IPorteStateMachine{
+  
+} 
 public class Controleur implements IControleurStateMachine {
     //attributes 
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2a174819 (name: Capteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) cf;
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2a174819 (name: Capteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) co;
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@34fabf43 (name: Telecommande, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) tele;
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@33b8c318 (name: Porte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) pt;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@7e1897f1 (name: Capteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) cf;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@7e1897f1 (name: Capteur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) co;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@256b255c (name: Telecommande, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) tele;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@2a0f6e77 (name: Porte, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) pt;
   
 
     //methodes 
@@ -85,9 +94,12 @@ public class Controleur implements IControleurStateMachine {
      }
    
 } 
+public interface IControleurStateMachine{
+  
+} 
 public class Telecommande implements ITelecommandeStateMachine {
     //attributes 
-    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@15e3e6e7 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
+    public  org.eclipse.uml2.uml.internal.impl.ClassImpl@92c8613 (name: Controleur, visibility: <unset>) (isLeaf: false, isAbstract: false, isFinalSpecialization: false) (isActive: false) ctrl;
   
 
     //methodes 
@@ -98,4 +110,7 @@ public class Telecommande implements ITelecommandeStateMachine {
      public  void  Telecommande(){
      }
    
+} 
+public interface ITelecommandeStateMachine{
+  
 } 
