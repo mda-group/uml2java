@@ -8,7 +8,7 @@ helper context MM!Model def : GenerateJavaCode() : String =
 		 ' */ \n'+
 		  classes->iterate(it; Class_Code: String = ''|Class_Code 
 	        + it.visibility +' class '+ it.name 
-			+ if it.hasBehavior(it) then ' implements ' + 'I'+it.name+'StateMachine ' else '' endif
+			--+ if it.hasBehavior(it) then ' implements ' + 'I'+it.name+'StateMachine ' else '' endif
 		    + '{\n  '
 		  	+'  //attributes \n'
 		    +'  ' + it.GenerateAttributes(it)
@@ -28,6 +28,7 @@ helper context MM!Class def : GenerateAttributes(x:MM!Class) : String =
 			 + it.type + ' '
 			 + it.name + ';'
 			 + '\n  '
+		     + if x.hasBehavior(x) then '  private ' + 'I'+x.name+'StateMachine '+x.name.toString().toLower()+'State;' else '' endif
           );
 
 --A method to generate the methods of a given class
@@ -46,7 +47,13 @@ helper context MM!Class def : GenerateMethods(x:MM!Class) : String =
 	    + '  '+it.name + '('
 	    + '){\n'
 	    + '     }\n   '
-       );
+       )
+	   +if x.hasBehavior(x) then '  public  void setState(' + 'I'+x.name+'StateMachine '+x.name.toString().toLower()+'State){\n'
+	         + '       this.'+x.name.toString().toLower()+'State='+x.name.toString().toLower()+'State; \n'
+		     + '     }\n' 
+		  else ''
+		  endif
+;
 
 helper context MM!Class def : hasBehavior(x: MM!Class) : Boolean = 
 	let  behavior : MM!StateMachine = x.ownedOperation->select(b | b.oclIsTypeOf(MM!StateMachine)) in 
