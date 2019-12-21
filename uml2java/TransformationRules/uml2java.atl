@@ -2,7 +2,13 @@ query Script = MM!Model->allInstances()->asSequence().first().GenerateJavaCode()
 
 							
 helper context MM!Model def : GenerateJavaCode() : String = 
+	    let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
 	     '/* \n'+
 		 ' * Automatically generated Java code with ATL \n'+
-		 ' * Authors: Mohammed TEBIB & Pascal Andre \n'+
-		 ' */ \n';
+		 ' */ \n'+
+		  classes->iterate(it; Class_Code: String = ''|Class_Code 
+	        + it.visibility +' class '+ it.name 
+		    + '{\n  '
+		    + '\n} \n'
+          );
+
