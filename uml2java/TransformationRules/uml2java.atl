@@ -2,7 +2,26 @@ query Script = MM!Model->allInstances()->asSequence().first().GenerateJavaCode()
 
 							
 helper context MM!Model def : GenerateJavaCode() : String = 
+	    let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
 	     '/* \n'+
 		 ' * Automatically generated Java code with ATL \n'+
-		 ' * Authors: Mohammed TEBIB & Pascal Andre \n'+
-		 ' */ \n';
+		 ' */ \n'+
+		  classes->iterate(it; Class_Code: String = ''|Class_Code 
+	        + it.visibility +' class '+ it.name 
+		    + '{\n  '
+		  	+'  //attributes \n'
+		    +'  ' + it.GenerateAttributes(it)
+		    + '\n} \n'
+          );
+
+
+--A method to generate the attributes of a given class
+helper context MM!Class def : GenerateAttributes(x:MM!Class) : String = 
+   let  attributes : MM!Property = x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property)) in
+	      attributes->iterate(it; att: String = ''| att + '  '
+	         + it.visibility + ' '
+			 + if it.isStatic.toString()='false' then ' ' else 'static  ' endif
+			 + it.type + ' '
+			 + it.name + ';'
+			 + '\n  '
+          );
