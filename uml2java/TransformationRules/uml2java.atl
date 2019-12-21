@@ -16,7 +16,7 @@ helper context MM!Model def : GenerateJavaCode() : String =
 		    +'  ' + it.GenerateMethods(it)
 		    + '\n} \n'
 			+ it.GenerateInterfaces(it)
-     );
+          );
 
    
 --A method to generate the attributes of a given class
@@ -61,11 +61,32 @@ helper context MM!Class def : hasBehavior(x: MM!Class) : Boolean =
 ;
 
 helper context MM!Class def : GenerateInterfaces(it: MM!Class) : String = 
+
       if it.hasBehavior(it) then 
 		  'public interface I'+ it.name + 'StateMachine'
 		    +'{\n  '
 		    +'\n} \n'
+			+  it.GenerateBehavior(it)
       else ''
 	  endif 	
 ;
- 
+
+helper context MM!Class def : GenerateBehavior(it: MM!Class) : String =
+   	let  behaviors : MM!StateMachine = it.ownedBehavior->select(b | b.oclIsTypeOf(MM!StateMachine)) in 
+	      behaviors->iterate(behavior; bh: String = ''|bh 
+	         + behavior.GenerateRegion(behavior,it.name)
+		  );
+	   
+
+helper context MM!StateMachine def :GenerateRegion(behavior: MM!StateMachine, className: String): String =  --'midou \n'
+	let  regions :  MM!Region = behavior.region->select(s | s.oclIsTypeOf(MM!Region)) in
+	     regions->iterate(region; rg: String =  '' | rg 
+	        + region.GenerateState(region, className)
+		 );
+
+helper context MM!Region def : GenerateState(region: MM!Region, className: String): String =  --'midou \n'
+	let  states :  MM!State = region.subvertex->select(s | s.oclIsTypeOf(MM!State)) in
+	     states->iterate(state; st: String =  '' | st 
+	       + 'public classe '+state.name + ' implements I'+className+'StateMachine {' + '\n'
+	       + '}\n'
+		 );
