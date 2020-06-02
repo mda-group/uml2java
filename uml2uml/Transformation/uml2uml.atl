@@ -1,0 +1,129 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+-- @nsURI MM1=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module uml2uml;
+create OUT : MM1 from IN : MM;
+
+
+helper context MM!Class def : hasBehavior(x: MM!Class) : Boolean = 
+	let  behavior : MM!StateMachine = x.ownedOperation->select(b | b.oclIsTypeOf(MM!StateMachine)) in 
+      if behavior.isEmpty() then true else false endif
+ ;
+
+helper context MM!Class def:  getProperties(x:MM!Class): Sequence(MM!Property) = 
+ 	--if(x.hasBehavior(x)) then
+	   x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property))
+	--else 
+	 --  x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property)).insertAt(1, x)  
+	--endif
+;
+
+helper context MM!Class def:  getBehavior(x:MM!Class): Sequence(MM!StateMachine) = 
+	x.ownedBehavior->select(b | b.oclIsTypeOf(MM!StateMachine))
+;
+
+helper context MM!Class def:  getOperations(x:MM!Class): Sequence(MM!Operation) = 
+	x.ownedOperation->select(b | b.oclIsTypeOf(MM!Operation))
+;
+
+rule model2model {
+	from
+		uml : MM!Model	
+	to 
+		uml_java : MM1!Model (
+			name <- uml.name,
+			packageImport <- MM!PackageImport.allInstances(),
+			packagedElement <- MM!Class.allInstances().union(MM1!Association.allInstances()),
+			profileApplication <- MM!ProfileApplication.allInstances()
+		)
+}
+
+rule Package {
+	
+	from
+	    uml: MM!PackageImport
+	to
+	    uml_java: MM1!PackageImport(
+	       importedPackage <- MM1!Profile.allInstances()
+	    )
+}
+rule Class {
+	from
+	    uml: MM!Class 
+	to
+	  
+	    uml_java: MM1!Class (
+	        name <- uml.name,
+	        ownedAttribute  <-  uml.getProperties(uml).union(thisModule.name(uml)),
+			ownedOperation  <-  uml.getOperations(uml)
+		)
+}
+rule Attribute{
+	from
+		uml : MM!Property
+	to 
+		uml_java : MM1!Property (
+			name <- uml.name,
+			type <- uml.type,
+			association <- uml.association
+		)
+}
+rule Operation {
+	from
+		uml : MM!Operation
+	to 
+		uml_java : MM1!Operation (
+			name <- uml.name
+		)
+}
+rule Association{	
+	from
+	   uml: MM!Association
+	to 
+       uml_java: MM1!Association(
+       	   
+       )
+}
+
+
+rule ProfileApplication {
+	from
+		 uml: MM!ProfileApplication
+	to 
+		 uml_java: MM1!ProfileApplication(
+       	   
+         )
+}
+
+
+lazy rule name {
+	from
+		uml : MM!Class (uml.hasBehavior(uml))
+	to 
+	    class : MM!Class(
+			name <- uml.name,
+	        ownedAttribute  <-  uml.getProperties(uml).union(private_attribute),
+			ownedOperation  <-  uml.getOperations(uml).uml(method)
+		),
+		state_interface: MM!Interface(
+			name <- 'I'+uml.name+'StateMachine'
+		),
+		implemets : MM! InterfaceRealization(
+		    client   <- class,
+			supplier <- state_interface
+		),
+		private_attribute: MM!Property(
+			name <- uml.name,
+			type <- 'I'+state_interface.name+'StateMachine',
+			visibility <- 'private'
+		),
+		method: MM!Operation (
+			visibility <- 'public',
+			name <- 'setState'
+	    )
+}
+
+
+
+
+

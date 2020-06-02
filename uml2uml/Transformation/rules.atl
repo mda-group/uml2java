@@ -1,0 +1,32 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+-- @nsURI MM1=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module rules;
+create OUT : MM1 from IN : MM;
+
+
+
+
+rule uml2java {
+	from
+		uml : MM!Model	
+	to 
+		uml_java : MM1!Model (
+			name <- uml.name,
+		--	packageImport <- MM!PackageImport.allInstances(),
+		--	packagedElement <- MM!Class.allInstances().union(MM1!Association.allInstances()),
+		--	profileApplication <- MM!ProfileApplication.allInstances()
+		   pachagedElement <-  MM!Class.allInstances()
+		   ->select(c | c.oclIsTypeO(MM!Class))
+		   ->collect(c | thisModule.s2c(c))
+		)
+}
+
+lazy rule s2c {
+	from
+		s : MM!StateMachine
+	to 
+		class : MM1!Class (
+			name <-s.name
+		)
+}

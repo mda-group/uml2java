@@ -90,9 +90,11 @@ public classe PorteFermee implements IPorteStateMachine {
 }
 public classe EnMouvement implements IPorteStateMachine {
 }
-public classe PorteOuverte implements IPorteStateMachine {
+
+public classe OpenedDoor implements IDoorStateMachine {
 }
-public classe PorteBloquee implements IPorteStateMachine {
+
+public classe BlockedDoor implements IDoorStateMachine {
 }
 public class Controleur{
     //attributes 
@@ -105,16 +107,22 @@ public class Controleur{
     //methodes 
      public  void  enregistreContact(){
      }
+     
      public  void  ouvre(){
      }
+     
      public  void  ferme(){
      }
+     
      public  void  urgence(){
      }
+     
      public  void  contact(){
      }
+     
      public  void  repriseCle(){
      }
+     
      public  void  Controleur(){
      }
      public  void setState(IControleurStateMachine controleurState){

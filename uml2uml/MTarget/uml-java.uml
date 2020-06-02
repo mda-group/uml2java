@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_ixhksJfDEeqDZ-pAJyCRnQ" name="StateClassTest">
+    <packageImport xmi:id="_ixhksZfDEeqDZ-pAJyCRnQ"/>
+    <packageImport xmi:id="_ixhkspfDEeqDZ-pAJyCRnQ"/>
+    <packageImport xmi:id="_ixhks5fDEeqDZ-pAJyCRnQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ixhktJfDEeqDZ-pAJyCRnQ" name="Motor">
+      <ownedAttribute xmi:id="_ixhktZfDEeqDZ-pAJyCRnQ" name="ctrl" type="_ixhkxZfDEeqDZ-pAJyCRnQ" association="_ixhk95fDEeqDZ-pAJyCRnQ"/>
+      <interfaceRealization xmi:id="_0KbzcJpDEeqkR54zzp3q8A" name="IMotorStateMachine" client="_ixhktJfDEeqDZ-pAJyCRnQ"/>
+      <ownedOperation xmi:id="_ixhktpfDEeqDZ-pAJyCRnQ" name="push"/>
+      <ownedOperation xmi:id="_ixhkt5fDEeqDZ-pAJyCRnQ" name="pull"/>
+      <ownedOperation xmi:id="_ixhkuJfDEeqDZ-pAJyCRnQ" name="stop"/>
+      <ownedOperation xmi:id="_ixhkuZfDEeqDZ-pAJyCRnQ" name="off"/>
+      <ownedOperation xmi:id="_ixhkvJfDEeqDZ-pAJyCRnQ" name="Motor"/>
+      <ownedOperation xmi:id="_3Vk5wJpDEeqkR54zzp3q8A" name="setState"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ixhkv5fDEeqDZ-pAJyCRnQ" name="Sensor">
+      <ownedAttribute xmi:id="_ixhkwJfDEeqDZ-pAJyCRnQ" name="ctrl" type="_ixhk15fDEeqDZ-pAJyCRnQ" association="_ixhk-ZfDEeqDZ-pAJyCRnQ"/>
+      <ownedOperation xmi:id="_ixhkwZfDEeqDZ-pAJyCRnQ" name="contact"/>
+      <ownedOperation xmi:id="_ixhkwpfDEeqDZ-pAJyCRnQ" name="Capteur"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ixhkxZfDEeqDZ-pAJyCRnQ" name="Door">
+      <ownedAttribute xmi:id="_ixhkxpfDEeqDZ-pAJyCRnQ" name="mt" type="_ixhktJfDEeqDZ-pAJyCRnQ" association="_ixhk95fDEeqDZ-pAJyCRnQ"/>
+      <ownedAttribute xmi:id="_ixhkx5fDEeqDZ-pAJyCRnQ" name="ctrl" type="_ixhk15fDEeqDZ-pAJyCRnQ" association="_ixhk-JfDEeqDZ-pAJyCRnQ"/>
+      <ownedOperation xmi:id="_ixhkyJfDEeqDZ-pAJyCRnQ" name="ouvre"/>
+      <ownedOperation xmi:id="_ixhkyZfDEeqDZ-pAJyCRnQ" name="ferme"/>
+      <ownedOperation xmi:id="_ixhkypfDEeqDZ-pAJyCRnQ" name="pause"/>
+      <ownedOperation xmi:id="_ixhky5fDEeqDZ-pAJyCRnQ" name="fermee"/>
+      <ownedOperation xmi:id="_ixhkzJfDEeqDZ-pAJyCRnQ" name="ouverte"/>
+      <ownedOperation xmi:id="_ixhkzZfDEeqDZ-pAJyCRnQ" name="bloque"/>
+      <ownedOperation xmi:id="_ixhkzpfDEeqDZ-pAJyCRnQ" name="reprend"/>
+      <ownedOperation xmi:id="_ixhkz5fDEeqDZ-pAJyCRnQ" name="Porte"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ixhk15fDEeqDZ-pAJyCRnQ" name="Controller">
+      <ownedAttribute xmi:id="_ixhk2JfDEeqDZ-pAJyCRnQ" name="cf" type="_ixhkv5fDEeqDZ-pAJyCRnQ" association="_ixhk-pfDEeqDZ-pAJyCRnQ"/>
+      <ownedAttribute xmi:id="_ixhk2ZfDEeqDZ-pAJyCRnQ" name="co" type="_ixhkv5fDEeqDZ-pAJyCRnQ" association="_ixhk-ZfDEeqDZ-pAJyCRnQ"/>
+      <ownedAttribute xmi:id="_ixhk2pfDEeqDZ-pAJyCRnQ" name="tele" type="_ixhk7pfDEeqDZ-pAJyCRnQ" association="_ixhk9pfDEeqDZ-pAJyCRnQ"/>
+      <ownedAttribute xmi:id="_ixhk25fDEeqDZ-pAJyCRnQ" name="pt" type="_ixhkxZfDEeqDZ-pAJyCRnQ" association="_ixhk-JfDEeqDZ-pAJyCRnQ"/>
+      <ownedOperation xmi:id="_ixhk3JfDEeqDZ-pAJyCRnQ" name="enregistreContact"/>
+      <ownedOperation xmi:id="_ixhk3ZfDEeqDZ-pAJyCRnQ" name="ouvre"/>
+      <ownedOperation xmi:id="_ixhk3pfDEeqDZ-pAJyCRnQ" name="ferme"/>
+      <ownedOperation xmi:id="_ixhk35fDEeqDZ-pAJyCRnQ" name="urgence"/>
+      <ownedOperation xmi:id="_ixhk4JfDEeqDZ-pAJyCRnQ" name="contact"/>
+      <ownedOperation xmi:id="_ixhk4ZfDEeqDZ-pAJyCRnQ" name="repriseCle"/>
+      <ownedOperation xmi:id="_ixhk4pfDEeqDZ-pAJyCRnQ" name="Controleur"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ixhk7pfDEeqDZ-pAJyCRnQ" name="RemoteControl">
+      <ownedAttribute xmi:id="_ixhk75fDEeqDZ-pAJyCRnQ" name="ctrl" type="_ixhk15fDEeqDZ-pAJyCRnQ" association="_ixhk9pfDEeqDZ-pAJyCRnQ"/>
+      <ownedOperation xmi:id="_ixhk8JfDEeqDZ-pAJyCRnQ" name="demandeOuverture"/>
+      <ownedOperation xmi:id="_ixhk8ZfDEeqDZ-pAJyCRnQ" name="demandeFermeture"/>
+      <ownedOperation xmi:id="_ixhk8pfDEeqDZ-pAJyCRnQ" name="Telecommande"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ixhk9pfDEeqDZ-pAJyCRnQ" memberEnd="_ixhk2pfDEeqDZ-pAJyCRnQ _ixhk75fDEeqDZ-pAJyCRnQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ixhk95fDEeqDZ-pAJyCRnQ" memberEnd="_ixhktZfDEeqDZ-pAJyCRnQ _ixhkxpfDEeqDZ-pAJyCRnQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ixhk-JfDEeqDZ-pAJyCRnQ" memberEnd="_ixhkx5fDEeqDZ-pAJyCRnQ _ixhk25fDEeqDZ-pAJyCRnQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ixhk-ZfDEeqDZ-pAJyCRnQ" memberEnd="_ixhkwJfDEeqDZ-pAJyCRnQ _ixhk2ZfDEeqDZ-pAJyCRnQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ixhk-pfDEeqDZ-pAJyCRnQ" memberEnd="_ixhk2JfDEeqDZ-pAJyCRnQ _ixhk_JfDEeqDZ-pAJyCRnQ"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_RkXscJpFEeqkR54zzp3q8A" name="IMotorStateMachine"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_ZICSMJpFEeqkR54zzp3q8A" name="ISensorStateMachine"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_a-caMJpFEeqkR54zzp3q8A" name="IDoorStateMachine"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_b6l5YJpFEeqkR54zzp3q8A" name="IControllerStateMachine"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_ddz_oJpFEeqkR54zzp3q8A" name="IRemoteControlStateMachine"/>
+    <profileApplication xmi:id="_ixhk-5fDEeqDZ-pAJyCRnQ"/>
+  </uml:Model>
+  <uml:Property xmi:id="_ixhk_JfDEeqDZ-pAJyCRnQ" name="ctrl" type="_b6l5YJpFEeqkR54zzp3q8A" association="_ixhk-pfDEeqDZ-pAJyCRnQ"/>
+</xmi:XMI>

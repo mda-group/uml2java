@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_sLkqMHMAEemPk457EdSKWw" name="EtatClassTest">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_sQ7EQHMAEemPk457EdSKWw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_kewYkIbBEemPacyOvdvXmw">
+      <importedPackage xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_EKLogIbCEemPacyOvdvXmw">
+      <importedPackage xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_-EoWcHMAEemPk457EdSKWw" name="Moteur" classifierBehavior="_TReusHMBEemPk457EdSKWw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GJsz4IBZEemgd9RNg0cTFw" name="ctrl" type="_qTaCcIBYEemgd9RNg0cTFw" association="_GJq-sIBZEemgd9RNg0cTFw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GJsz4YBZEemgd9RNg0cTFw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GJta8IBZEemgd9RNg0cTFw" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_TReusHMBEemPk457EdSKWw" name="Moteur">
+        <region xmi:type="uml:Region" xmi:id="_ULhVEHMBEemPk457EdSKWw" name="Moteur">
+          <transition xmi:type="uml:Transition" xmi:id="_WfTVkHMBEemPk457EdSKWw" source="_U4ZCIHMBEemPk457EdSKWw" target="_VJ0wYHMBEemPk457EdSKWw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_XY_9sHMBEemPk457EdSKWw" source="_VJ0wYHMBEemPk457EdSKWw" target="_VZtmgHMBEemPk457EdSKWw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_cj8XEHudEemfx9Mmi1TiHA" name="tire"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_X5pzsHMBEemPk457EdSKWw" source="_VZtmgHMBEemPk457EdSKWw" target="_VJ0wYHMBEemPk457EdSKWw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_eN-3AHudEemfx9Mmi1TiHA" name="stoppe"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_YgWnUHMBEemPk457EdSKWw" source="_VJ0wYHMBEemPk457EdSKWw" target="_VsFv8HMBEemPk457EdSKWw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_iaVisHudEemfx9Mmi1TiHA" name="pousse"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_ZFqT0HMBEemPk457EdSKWw" source="_VsFv8HMBEemPk457EdSKWw" target="_VJ0wYHMBEemPk457EdSKWw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_aH81wHudEemfx9Mmi1TiHA" name="stoppe"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_1WV48HsJEemiA9WrNNzBHw" source="_VJ0wYHMBEemPk457EdSKWw" target="_VJ0wYHMBEemPk457EdSKWw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_BzhzIHueEemfx9Mmi1TiHA" name="stoppe"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_U4ZCIHMBEemPk457EdSKWw" name="Initial1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_VJ0wYHMBEemPk457EdSKWw" name="Arret">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_4S9K4H4FEemdjN-UxRw0RQ" specification="_o8-64HueEemfx9Mmi1TiHA"/>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_VZtmgHMBEemPk457EdSKWw" name="enTiree"/>
+          <subvertex xmi:type="uml:State" xmi:id="_VsFv8HMBEemPk457EdSKWw" name="enPoussee"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_M1wBYHMBEemPk457EdSKWw" name="pousser"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_PQXpsHMBEemPk457EdSKWw" name="tirer"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_P4ARcHMBEemPk457EdSKWw" name="stoppe"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_o8-64HueEemfx9Mmi1TiHA" name="arreter" method="_4S9K4H4FEemdjN-UxRw0RQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_qajFEHueEemfx9Mmi1TiHA" name="tire"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_rRi-gHueEemfx9Mmi1TiHA" name="pousse"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_AcM1cIdzEemGnYxPslzbXQ" name="Moteur"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_fKmzoHWEEemaVfzXtSBAVA" name="Capteur" classifierBehavior="_mWZr8HWEEemaVfzXtSBAVA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RwkJgIB-EemPV_bdkmOXiw" name="ctrl" type="_rTwFIIBYEemgd9RNg0cTFw" association="_RwgfIIB-EemPV_bdkmOXiw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RwkJgYB-EemPV_bdkmOXiw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RwkwkIB-EemPV_bdkmOXiw" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_mWZr8HWEEemaVfzXtSBAVA" name="Capteur">
+        <region xmi:type="uml:Region" xmi:id="_nCze8HWEEemaVfzXtSBAVA" name="Capteur">
+          <transition xmi:type="uml:Transition" xmi:id="_xp5ZcHWEEemaVfzXtSBAVA" source="_vjCaoHWEEemaVfzXtSBAVA" target="_vvzrUHWEEemaVfzXtSBAVA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_yaXNEHWEEemaVfzXtSBAVA" source="_vvzrUHWEEemaVfzXtSBAVA" target="_vvzrUHWEEemaVfzXtSBAVA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_qvaOII6fEem15orUl548eA">
+              <language>JAVA</language>
+              <body>ctrl.enregistreContact(self);</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_7KDIQHueEemfx9Mmi1TiHA" name="contact"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_vjCaoHWEEemaVfzXtSBAVA" name="Initial1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_vvzrUHWEEemaVfzXtSBAVA" name="Actif"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_juLFcHWEEemaVfzXtSBAVA" name="contact"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_U5ODkIbAEemPacyOvdvXmw" name="Capteur"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qTaCcIBYEemgd9RNg0cTFw" name="Porte" classifierBehavior="_HFTQMI6hEem15orUl548eA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GJta8YBZEemgd9RNg0cTFw" name="mt" type="_-EoWcHMAEemPk457EdSKWw" association="_GJq-sIBZEemgd9RNg0cTFw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MUI84oBZEemgd9RNg0cTFw" name="ctrl" type="_rTwFIIBYEemgd9RNg0cTFw" association="_MUHuwIBZEemgd9RNg0cTFw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MUJj8IBZEemgd9RNg0cTFw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MUJj8YBZEemgd9RNg0cTFw" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_HFTQMI6hEem15orUl548eA" name="Porte">
+        <region xmi:type="uml:Region" xmi:id="_HX2_0I6hEem15orUl548eA" name="Porte">
+          <transition xmi:type="uml:Transition" xmi:id="_lfghII6nEem15orUl548eA" source="_hqwdII6nEem15orUl548eA" target="_jqybMI6nEem15orUl548eA">
+            <trigger xmi:type="uml:Trigger" xmi:id="_DRfXQJDZEemA4YkeJZQbdA" name="bloque"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_mHHTsI6nEem15orUl548eA" source="_jqybMI6nEem15orUl548eA" target="_XGNosJEKEemKsLDuPPwnLg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_EwC_8JDZEemA4YkeJZQbdA" name="reprend"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_rIos0I6nEem15orUl548eA" source="_ghfH8I6nEem15orUl548eA" target="_g_-awI6nEem15orUl548eA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_yCCNkI6nEem15orUl548eA" source="_g_-awI6nEem15orUl548eA" target="_iCeZkI6nEem15orUl548eA">
+            <trigger xmi:type="uml:Trigger" xmi:id="_7aXfcJDXEemA4YkeJZQbdA" name="ouvre"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_y9aQsI6nEem15orUl548eA" source="_jS8i8I6nEem15orUl548eA" target="_i0V7YI6nEem15orUl548eA">
+            <trigger xmi:type="uml:Trigger" xmi:id="_BsSUAJDZEemA4YkeJZQbdA" name="ferme"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_ghfH8I6nEem15orUl548eA" name="Initial1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_g_-awI6nEem15orUl548eA" name="PorteFermee">
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_LZNsUJDZEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>mt.stoppe();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_hqwdII6nEem15orUl548eA" name="EnMouvement">
+            <region xmi:type="uml:Region" xmi:id="_iCb9Uo6nEem15orUl548eA" name="Porte">
+              <transition xmi:type="uml:Transition" xmi:id="_um-b8I6nEem15orUl548eA" source="_iCeZkI6nEem15orUl548eA" target="_icJd0I6nEem15orUl548eA">
+                <trigger xmi:type="uml:Trigger" xmi:id="_xBH-QJDYEemA4YkeJZQbdA" name="pause"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_vKk4QI6nEem15orUl548eA" source="_icJd0I6nEem15orUl548eA" target="_i0V7YI6nEem15orUl548eA">
+                <trigger xmi:type="uml:Trigger" xmi:id="_4tkskJDYEemA4YkeJZQbdA" name="ferme"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_vyRxcI6nEem15orUl548eA" source="_i0V7YI6nEem15orUl548eA" target="_icJd0I6nEem15orUl548eA">
+                <trigger xmi:type="uml:Trigger" xmi:id="_3iJbQJDYEemA4YkeJZQbdA" name="pause"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_we94UI6nEem15orUl548eA" source="_icJd0I6nEem15orUl548eA" target="_iCeZkI6nEem15orUl548eA">
+                <trigger xmi:type="uml:Trigger" xmi:id="_ymTzYJDYEemA4YkeJZQbdA" name="ouvre"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_ydMfkI6nEem15orUl548eA" source="_iCeZkI6nEem15orUl548eA" target="_jS8i8I6nEem15orUl548eA">
+                <trigger xmi:type="uml:Trigger" xmi:id="_AR_gQJDZEemA4YkeJZQbdA" name="ouverte"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_zi48UI6nEem15orUl548eA" source="_i0V7YI6nEem15orUl548eA" target="_g_-awI6nEem15orUl548eA">
+                <trigger xmi:type="uml:Trigger" xmi:id="_u2i9EJDYEemA4YkeJZQbdA" name="fermee"/>
+              </transition>
+              <subvertex xmi:type="uml:State" xmi:id="_iCeZkI6nEem15orUl548eA" name="PorteEnOuverture">
+                <entry xmi:type="uml:FunctionBehavior" xmi:id="_ZrA-AJDZEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>mt.tire();</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_icJd0I6nEem15orUl548eA" name="PorteArretee">
+                <entry xmi:type="uml:FunctionBehavior" xmi:id="_cx-H4JDZEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>mt.stoppe();</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_i0V7YI6nEem15orUl548eA" name="PorteEnFermeture">
+                <entry xmi:type="uml:FunctionBehavior" xmi:id="_h6-pEJDZEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>mt.pousse();</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_XGNosJEKEemKsLDuPPwnLg" kind="deepHistory"/>
+            </region>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_jS8i8I6nEem15orUl548eA" name="PorteOuverte">
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_mPoVIJDZEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>mt.stoppe();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_jqybMI6nEem15orUl548eA" name="PorteBloquee">
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_pIlfQJDZEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>mt.stoppe();</body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_mOrW0IBaEemgd9RNg0cTFw" name="ouvre"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_nPHgIIBaEemgd9RNg0cTFw" name="ferme"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_oM7zQIBaEemgd9RNg0cTFw" name="pause"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pG_AsIBaEemgd9RNg0cTFw" name="fermee"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_rYko0IBaEemgd9RNg0cTFw" name="ouverte"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_sgdd8IBaEemgd9RNg0cTFw" name="bloque"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_tdu-gIBaEemgd9RNg0cTFw" name="reprend"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_93T20IdyEemGnYxPslzbXQ" name="Porte"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rTwFIIBYEemgd9RNg0cTFw" name="Controleur" classifierBehavior="_EiofII6hEem15orUl548eA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Uel2AoB-EemPV_bdkmOXiw" name="cf" type="_fKmzoHWEEemaVfzXtSBAVA" association="_UekA0IB-EemPV_bdkmOXiw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RwkwkYB-EemPV_bdkmOXiw" name="co" type="_fKmzoHWEEemaVfzXtSBAVA" association="_RwgfIIB-EemPV_bdkmOXiw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9L39QIBYEemgd9RNg0cTFw" name="tele" type="_sjsqEIBYEemgd9RNg0cTFw" association="_9LOdAIBYEemgd9RNg0cTFw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AGqTYIBZEemgd9RNg0cTFw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AG0rcIBZEemgd9RNg0cTFw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MUJj8oBZEemgd9RNg0cTFw" name="pt" type="_qTaCcIBYEemgd9RNg0cTFw" association="_MUHuwIBZEemgd9RNg0cTFw"/>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_EiofII6hEem15orUl548eA" name="Controleur">
+        <region xmi:type="uml:Region" xmi:id="_FDz5kI6hEem15orUl548eA" name="Controleur">
+          <transition xmi:type="uml:Transition" xmi:id="_7xdLII6lEem15orUl548eA" source="_wdrbsI6jEem15orUl548eA" target="_wE69cI6jEem15orUl548eA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_-7lKIJDcEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>pt.ferme();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_dnfvwJDbEemA4YkeJZQbdA" name="ferme"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_9KhP0I6lEem15orUl548eA" source="_rdCMUI6jEem15orUl548eA" target="_upPpoI6jEem15orUl548eA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_EwYPwJDcEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>pt.ouvre();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_WYVaYJDbEemA4YkeJZQbdA" name="ouvre"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_-EJmgI6lEem15orUl548eA" source="_q_eGkI6jEem15orUl548eA" target="_rdCMUI6jEem15orUl548eA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_Zp1wII6mEem15orUl548eA" source="_stDCsI6jEem15orUl548eA" target="_YCohwI6mEem15orUl548eA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_xgIHEJDbEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>pt.bloque();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_soXG4JDbEemA4YkeJZQbdA" name="urgence"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_hI6w0I6mEem15orUl548eA" source="_YCohwI6mEem15orUl548eA" target="_Mp-TUJEKEemKsLDuPPwnLg">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_4_jtEJDbEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>pt.reprend();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_2HMY0JDbEemA4YkeJZQbdA" name="repriseCle"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_q_eGkI6jEem15orUl548eA" name="Initial1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_rdCMUI6jEem15orUl548eA" name="Fermee"/>
+          <subvertex xmi:type="uml:State" xmi:id="_stDCsI6jEem15orUl548eA" name="Mouvement">
+            <region xmi:type="uml:Region" xmi:id="_upKKEI6jEem15orUl548eA" name="Controleur">
+              <transition xmi:type="uml:Transition" xmi:id="__lsjsI6jEem15orUl548eA" source="_upPpoI6jEem15orUl548eA" target="_vBcuQI6jEem15orUl548eA">
+                <effect xmi:type="uml:FunctionBehavior" xmi:id="_z2DSEJDaEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>pt.pause();</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_w9eicJDaEemA4YkeJZQbdA" name="ouvre"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_BxQcUI6kEem15orUl548eA" source="_vBcuQI6jEem15orUl548eA" target="_upPpoI6jEem15orUl548eA">
+                <effect xmi:type="uml:FunctionBehavior" xmi:id="_JaeAUJDcEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>pt.ouvre();</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_9qb9QJDaEemA4YkeJZQbdA" name="ouvre"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_CjDFoI6kEem15orUl548eA" source="_vBcuQI6jEem15orUl548eA" target="_wE69cI6jEem15orUl548eA">
+                <effect xmi:type="uml:FunctionBehavior" xmi:id="_YhtsQJDcEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>pt.ferme();</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="__Ihr4JDaEemA4YkeJZQbdA" name="ferme"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_DglE4I6kEem15orUl548eA" source="_wE69cI6jEem15orUl548eA" target="_vBcuQI6jEem15orUl548eA">
+                <effect xmi:type="uml:FunctionBehavior" xmi:id="_wJOwIJDcEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>pt.pause();</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_AQCGgJDbEemA4YkeJZQbdA" name="ferme"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_7HtDgI6lEem15orUl548eA" source="_upPpoI6jEem15orUl548eA" target="_wdrbsI6jEem15orUl548eA">
+                <effect xmi:type="uml:FunctionBehavior" xmi:id="_hqstMJDgEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>pt.ouverte();</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_j8oTkJDgEemA4YkeJZQbdA" name="enregistreContact"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_8WqJ8I6lEem15orUl548eA" source="_wE69cI6jEem15orUl548eA" target="_rdCMUI6jEem15orUl548eA">
+                <effect xmi:type="uml:FunctionBehavior" xmi:id="_rNq4QJDgEemA4YkeJZQbdA">
+                  <language>JAVA</language>
+                  <body>pt.fermee();</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_oKHAoJDgEemA4YkeJZQbdA" name="enresgistreContact"/>
+              </transition>
+              <subvertex xmi:type="uml:State" xmi:id="_upPpoI6jEem15orUl548eA" name="EnOuverture"/>
+              <subvertex xmi:type="uml:State" xmi:id="_vBcuQI6jEem15orUl548eA" name="EnAttente"/>
+              <subvertex xmi:type="uml:State" xmi:id="_wE69cI6jEem15orUl548eA" name="EnFermeture"/>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_Mp-TUJEKEemKsLDuPPwnLg" name="" kind="deepHistory"/>
+            </region>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_wdrbsI6jEem15orUl548eA" name="Ouverte"/>
+          <subvertex xmi:type="uml:State" xmi:id="_YCohwI6mEem15orUl548eA" name="Urgence"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_inV5MIBZEemgd9RNg0cTFw" name="enregistreContact">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_CTyx8IBcEemgd9RNg0cTFw" name="capteur" type="_fKmzoHWEEemaVfzXtSBAVA" effect="read"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_nK8nQIBZEemgd9RNg0cTFw" name="ouvre"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_oQTs0IBZEemgd9RNg0cTFw" name="ferme"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pKA8AIBZEemgd9RNg0cTFw" name="urgence"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_qLJo4IBZEemgd9RNg0cTFw" name="contact"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_rD8SEIBZEemgd9RNg0cTFw" name="repriseCle"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_7wDPYIdyEemGnYxPslzbXQ" name="Controleur"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_sjsqEIBYEemgd9RNg0cTFw" name="Telecommande" classifierBehavior="_-Dji4I6gEem15orUl548eA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9LmQcIBYEemgd9RNg0cTFw" name="ctrl" type="_rTwFIIBYEemgd9RNg0cTFw" association="_9LOdAIBYEemgd9RNg0cTFw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9LsXEIBYEemgd9RNg0cTFw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9LzEwIBYEemgd9RNg0cTFw" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_-Dji4I6gEem15orUl548eA" name="Telecommande">
+        <region xmi:type="uml:Region" xmi:id="__CtSwI6gEem15orUl548eA" name="Telecommande">
+          <transition xmi:type="uml:Transition" xmi:id="_r9ayAI6iEem15orUl548eA" source="_oiOdgI6iEem15orUl548eA" target="_pPAD8I6iEem15orUl548eA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_vwNuMI6iEem15orUl548eA" source="_pPAD8I6iEem15orUl548eA" target="_pPAD8I6iEem15orUl548eA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_dnd3YJDXEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>ctrl.ouvre();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_mNE3wJDWEemA4YkeJZQbdA" name="demandeOuverture"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_zJxrAI6iEem15orUl548eA" source="_pPAD8I6iEem15orUl548eA" target="_pPAD8I6iEem15orUl548eA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_XWNUsJDXEemA4YkeJZQbdA">
+              <language>JAVA</language>
+              <body>ctrl.ferme();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_R4Mz4JDXEemA4YkeJZQbdA" name="demandeFermeture"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_oiOdgI6iEem15orUl548eA" name="Initial1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_pPAD8I6iEem15orUl548eA" name="Actif"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_jI4DgIBaEemgd9RNg0cTFw" name="demandeOuverture"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_k43acIBaEemgd9RNg0cTFw" name="demandeFermeture"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_40mx8IdyEemGnYxPslzbXQ" name="Telecommande"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_9LOdAIBYEemgd9RNg0cTFw" memberEnd="_9LmQcIBYEemgd9RNg0cTFw _9L39QIBYEemgd9RNg0cTFw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9LQ5QIBYEemgd9RNg0cTFw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9LQ5QYBYEemgd9RNg0cTFw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_GJq-sIBZEemgd9RNg0cTFw" memberEnd="_GJsz4IBZEemgd9RNg0cTFw _GJta8YBZEemgd9RNg0cTFw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GJsM0IBZEemgd9RNg0cTFw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GJsM0YBZEemgd9RNg0cTFw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_MUHuwIBZEemgd9RNg0cTFw" memberEnd="_MUI84oBZEemgd9RNg0cTFw _MUJj8oBZEemgd9RNg0cTFw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MUI84IBZEemgd9RNg0cTFw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MUI84YBZEemgd9RNg0cTFw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_RwgfIIB-EemPV_bdkmOXiw" memberEnd="_RwkJgIB-EemPV_bdkmOXiw _RwkwkYB-EemPV_bdkmOXiw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Rwi7YIB-EemPV_bdkmOXiw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Rwi7YYB-EemPV_bdkmOXiw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_UekA0IB-EemPV_bdkmOXiw" memberEnd="_UelO8oB-EemPV_bdkmOXiw _Uel2AoB-EemPV_bdkmOXiw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UelO8IB-EemPV_bdkmOXiw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UelO8YB-EemPV_bdkmOXiw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_UelO8oB-EemPV_bdkmOXiw" name="ctrl" type="_rTwFIIBYEemgd9RNg0cTFw" association="_UekA0IB-EemPV_bdkmOXiw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uel2AIB-EemPV_bdkmOXiw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uel2AYB-EemPV_bdkmOXiw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_GWcEsIbCEemPacyOvdvXmw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GWdS0IbCEemPacyOvdvXmw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Create xmi:id="_ILT7oIbCEemPacyOvdvXmw" base_BehavioralFeature="_U5ODkIbAEemPacyOvdvXmw"/>
+  <standard:Create xmi:id="_61Ol4IdyEemGnYxPslzbXQ" base_BehavioralFeature="_40mx8IdyEemGnYxPslzbXQ"/>
+  <standard:Create xmi:id="_9ItrcIdyEemGnYxPslzbXQ" base_BehavioralFeature="_7wDPYIdyEemGnYxPslzbXQ"/>
+  <standard:Create xmi:id="__mn4UIdyEemGnYxPslzbXQ" base_BehavioralFeature="_93T20IdyEemGnYxPslzbXQ"/>
+  <standard:Create xmi:id="_Bwfu4IdzEemGnYxPslzbXQ" base_BehavioralFeature="_AcM1cIdzEemGnYxPslzbXQ"/>
+</xmi:XMI>
